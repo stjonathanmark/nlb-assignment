@@ -1,0 +1,11 @@
+<kendo-grid [kendoGridBinding]="students" [filterable]="true">
+  <kendo-grid-column field="name" title="Name"></kendo-grid-column>
+  <kendo-grid-column field="age" title="Age"> </kendo-grid-column>
+  <kendo-grid-column field="hobbies" title="Hobbies">
+    <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+      <ng-container *ngFor="let hobby of dataItem.hobbies, let i = index">
+        {{hobby}}<ng-container *ngIf="i < dataItem.hobbies.length - 1">, </ng-container>
+      </ng-container>
+    </ng-template>
+  </kendo-grid-column>
+<kendo-grid>
